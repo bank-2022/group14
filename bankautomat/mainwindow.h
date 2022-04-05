@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include "login.h"
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QMessageBox>
 
 #include <QMainWindow>
 

@@ -2,6 +2,9 @@
 #define LOGIN_H
 
 #include <QDialog>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QMessageBox>
 
 namespace Ui {
 class Login;
@@ -17,6 +20,8 @@ public:
 
 private slots:
     void on_returnButton_clicked();
+
+    void on_loginButton_clicked();
 
 private:
     Ui::Login *ui;
