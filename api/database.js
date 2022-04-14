@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const connection = mysql.createPool({
-  host: 'localhost',
+  host: 'https://thoon.feralhosting.com/tinosaurus',
   user: 'netuser',
   password: 'netpass',
   database: 'banksimul'

@@ -13,8 +13,8 @@ const kortti = {
   add: function(kortti, callback) {
       bcrypt.hash(kortti.pin, saltRounds, function(err, hash){
         return db.query(
-            'insert into kortti (korttinumero,idKortti,idAsiakas,idTili,pin) values(?,?,?,?,?)',
-            [kortti.korttinumero, kortti.idKortti, kortti.idAsiakas, kortti.idTili, hash],
+            'insert into kortti (idKortti,korttinumero,pin,idAsiakas,idTili) values(?,?,?,?,?)',
+            [kortti.idKortti, kortti.korttinumero, hash, kortti.idAsiakas, kortti.idTili],
             callback
           );          
       })
@@ -25,8 +25,8 @@ const kortti = {
   update: function(id, kortti, callback) {
     bcrypt.hash(kortti.pin, saltRounds, function(err, hash){
       return db.query(
-          'update kortti set idKortti=?, korttinumero=?,idAsiakas=?, idTili=?, pin=? WHERE idKortti=?',
-          [kortti.idKortti, kortti.korttinumero, kortti.idAsiakas, kortti.idTili, hash, id],
+          'update kortti set idKortti=?, korttinumero=?, pin=?,idAsiakas=?, idTili=? WHERE idKortti=?',
+          [kortti.idKortti, kortti.korttinumero, hash, kortti.idAsiakas, kortti.idTili,  id],
           callback
         );          
     })
