@@ -30,7 +30,7 @@ router.post('/',
               );
             }
             else{
-              console.log("user does not exists");
+              console.log("something went wrong");
               response.send(false);
             }
           }
@@ -44,9 +44,10 @@ router.post('/',
   }
 );
 
+
 function generateAccessToken(idKortti) {
   dotenv.config();
-  return jwt.sign(idKortti, process.env.MY_TOKEN, { expiresIn: '1800s' });
+  return jwt.sign(idKortti, process.env.MY_TOKEN, { expiresIn: '180s' });
 }
 
 module.exports=router;
